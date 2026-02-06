@@ -7,3 +7,10 @@ asgiref==3.11.0
 mysqlclient==2.2.7
 python-decouple==3.8
 pillow==12.1.0
+djangorestframework_simplejwt==5.5.1
+django-stubs==5.2.9
+django-stubs-ext==5.2.9
+djangorestframework-stubs==3.16.8
+PyJWT==2.11.0
+types-PyYAML==6.0.12.20250915
+typing_extensions==4.15.0
