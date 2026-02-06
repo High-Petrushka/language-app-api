@@ -20,23 +20,18 @@ class TeacherManager(BaseUserManager):
         user.save(using=self._db)
         return user
 
-class BankInfo(models.Model):
-    card_number = models.IntegerField()
-    expiration_date = models.CharField(max_length=5)
-    cvv_code = models.IntegerField()
-
 class Teacher(MyUser):
     first_name = models.CharField(max_length=255)
     last_name = models.CharField(max_length=255)
     bio = models.TextField(null=True, blank=True)
-    card_info = models.OneToOneField(
-        BankInfo,
-        on_delete=models.CASCADE,
-        blank=True,
-        null=True,
-    )
 
     objects = TeacherManager()
 
     def __str__(self):
         return f'{self.username}'
+
+class BankInfo(models.Model):
+    card_number = models.IntegerField()
+    expiration_date = models.CharField(max_length=5)
+    cvv_code = models.IntegerField()
+    user = models.OneToOneField(Teacher, on_delete=models.CASCADE)
